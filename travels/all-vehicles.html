@@ -1,0 +1,243 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f0f0f',
+                        secondary: '#1c1c1c',
+                        accent: '#f4d03f',
+                        green: '#2ecc71',
+                        text: '#dcdcdc'
+                    },
+                    fontFamily: {
+                        heading: ['Poppins', 'sans-serif'],
+                        body: ['Open Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+     <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #0f0f0f;
+            color: #dcdcdc;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(15, 15, 15, 0.8), rgba(28, 28, 28, 0.9)), url('') no-repeat center center/cover;
+        }
+      
+    </style>
+</head>
+<body>
+
+  <!-- normal cars  -->
+<nav class="sticky top-0 z-50 bg-gray-900/30 backdrop-blur-md shadow-lg">
+  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <!-- Logo + Brand -->
+    <a href="#" class="flex items-center  md:ml-4">
+      <!-- Replace with your logo image -->
+     <img src="images/logo.png" alt="RentCar Logo" class="w-18 h-16 mr-2 rounded-full shadow-md">
+
+      <span class="text-l  text-accent">Vigneswara Tours & Travels</span>
+    </a>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex space-x-6  mr-10 md:mr-10">
+      <a href="index.html" class="flex items-center space-x-2 hover:text-accent transition">
+        <i data-feather="home" class="w-5 h-5"></i>
+        <span>Home</span>
+      </a>
+     
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+      <i data-feather="menu" class="w-6 h-6"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+<div id="mobile-menu" class="md:hidden hidden bg-gray-900/50 backdrop-blur-md px-4 py-4 space-y-2 rounded-b-lg">
+    <a href="index.html" class="flex items-center space-x-2 hover:text-accent transition">
+      <i data-feather="home" class="w-5 h-5"></i>
+      <span>Home</span>
+    </a>
+    
+  </div>
+</nav>
+    
+<section id="vehicles" class="py-20 bg-gray-800">
+  <div class="container mx-auto px-6 md:px-12 lg:px-20">
+    <div class="rounded-3xl shadow-2xl p-10 relative" style="background-color: rgb(17 24 39)">
+      <a href="index.html" class="bg-accent text-primary font-bold py-3 px-4 rounded-lg hover:bg-yellow-500 transition mb-8 inline-block" data-aos="fade-up" data-aos-delay="400">
+        Go Back To Home Page
+      </a>
+
+      <h2 class="text-3xl font-bold text-center mb-16 uppercase text-accent">Our Vehicle Fleet</h2>
+
+      <div id="allVehicleContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center"></div>
+    </div>
+  </div>
+</section>
+
+<script type="module">
+import { vehicles } from './vehiclesData.js';
+
+const container = document.getElementById("allVehicleContainer");
+
+// Display all vehicles
+vehicles.forEach((vehicle, index) => {
+  const card = document.createElement("div");
+  card.className = "bg-gray-800 rounded-lg overflow-hidden shadow-xl w-full sm:w-[20rem] lg:w-80";
+  card.setAttribute("data-aos", "fade-up");
+  if(index > 0) card.setAttribute("data-aos-delay", `${index * 100}`);
+
+  card.innerHTML = `
+    <img src="${vehicle.image}" alt="Vehicle" class="w-full  sm:h-60 lg:h-56 object-cover">
+    <div class="p-6">
+      <div class="flex justify-between items-start mb-3">
+        <h3 class="text-xl font-bold">${vehicle.name}</h3>
+      </div>
+      <ul class="mb-4 space-y-2">
+        <li class="flex items-center">
+          <i data-feather="users" class="w-4 h-4 mr-2"></i>
+          <span>${vehicle.seats} Seats</span>
+        </li>
+        <li class="flex items-center">
+          <i data-feather="navigation" class="w-4 h-4 mr-2"></i>
+          <span>${vehicle.gps ? "GPS Included" : "No GPS"}</span>
+        </li>
+      </ul>
+      <button onclick="window.location.href='index.html#contact'" 
+        class="w-full bg-accent text-black py-2 rounded-lg transition hover:bg-yellow-500">
+        Book Now
+      </button>
+    </div>
+  `;
+
+  container.appendChild(card);
+});
+
+// Initialize feather icons
+feather.replace();
+</script>
+
+
+
+
+
+<!--luxary cars  -->
+<section id="vehicles" class="py-20 bg-gray-800">
+  <div class="container mx-auto px-6 md:px-12 lg:px-20">
+    <div class="rounded-3xl shadow-2xl p-10 relative" style="background-color: rgb(17 24 39)">
+      <a href="index.html" class="bg-accent text-primary font-bold py-3 px-4 rounded-lg hover:bg-yellow-500 transition mb-8 inline-block" data-aos="fade-up" data-aos-delay="400">Go Back To Home Page</a>
+
+      <h2 class="text-3xl font-bold text-center mb-16 uppercase text-accent">Our Luxury Vehicle Fleet</h2>
+
+      <div id="VehicleContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center"></div>
+    </div>
+  </div>
+</section>
+
+<script type="module">
+import { vehicles } from './vehiclesluxary.js';
+
+const luxuryContainer = document.getElementById("VehicleContainer");
+
+// Display all vehicles
+vehicles.forEach((vehicle, index) => {
+  const card = document.createElement("div");
+  card.className = "bg-gray-800 rounded-lg overflow-hidden shadow-xl w-full sm:w-[20rem] lg:w-80";
+  card.setAttribute("data-aos", "fade-up");
+  if(index > 0) card.setAttribute("data-aos-delay", `${index * 100}`);
+
+  card.innerHTML = `
+    <img src="${vehicle.image}" alt="Vehicle" class="w-full  object-cover">
+    <div class="p-6">
+      <div class="flex justify-between items-start mb-3">
+        <h3 class="text-xl font-bold">${vehicle.name}</h3>
+      </div>
+      <ul class="mb-4 space-y-2">
+        <li class="flex items-center">
+          <i data-feather="users" class="w-4 h-4 mr-2"></i>
+          <span>${vehicle.seats} Seats</span>
+        </li>
+        <li class="flex items-center">
+          <i data-feather="navigation" class="w-4 h-4 mr-2"></i>
+          <span>${vehicle.gps ? "GPS Included" : "No GPS"}</span>
+        </li>
+      </ul>
+      <button onclick="window.location.href='index.html#contact'" 
+        class="w-full bg-accent text-black py-2 rounded-lg transition hover:bg-yellow-500">
+        Book Now
+      </button>
+    </div>
+  `;
+
+  luxuryContainer.appendChild(card);
+});
+
+// Initialize feather icons
+feather.replace();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  // Initialize Feather Icons
+  feather.replace();
+
+  // Mobile menu toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('block');
+  });
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
