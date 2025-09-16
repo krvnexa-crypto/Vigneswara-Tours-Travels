@@ -108,7 +108,7 @@ export const carsData = [
     }
   },
   {
-    name: "BMW 75",
+    name: "BMW 7",
      image: "cars/bmw.avif",
     tariffs: {
       regular: [
