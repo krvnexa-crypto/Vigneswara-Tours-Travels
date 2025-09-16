@@ -16,13 +16,13 @@ export const vehicles = [
 
     },
      {
-        name: "Innova crysta",
+        name: "Innova Crysta",
         seats: 6+1,
         gps: true,
        image: "cars/Innova crysta.avif"
     },
     {
-        name: "Innova crysta",
+        name: "Innova Crysta",
         seats: 7+1,
         gps: true,
        image: "cars/Innova crysta.avif"

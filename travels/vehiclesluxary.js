@@ -25,7 +25,7 @@ export const vehicles = [
         image: "cars/Mercedes-Benz C 250.avif"
     },
      {
-        name: "bmw 75",
+        name: "BMW 75",
         seats: 5,
         gps: true,
         image: "cars/bmw.avif"
